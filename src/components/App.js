@@ -9,10 +9,10 @@ const App = () => {
     { id: 3, text: 'Deploy the React app', isCompleted: false }
   ]);
 
-  const handleComplete = (id) => {
+  const handleComplete = (todoId) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
-        todo.id === id ? { ...todo, isCompleted: true } : todo
+        todo.id === todoId ? { ...todo, isCompleted: true } : todo
       )
     );
   };
