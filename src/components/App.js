@@ -1,26 +1,23 @@
 import React, { useState } from "react";
-import './../styles/App.css';
+import "./../styles/App.css";
 import TodoList from "./TodoList";
-
 const App = () => {
   const [todos, setTodos] = useState([
-    { id: 1, text: 'Learn React ', completed: false },
-    { id: 2, text: 'Build a React app', completed: false },
-    { id: 3, text: 'Deploy the React app', completed: false }
+    { id: 1, data: "Learn React", completed: false },
+    { id: 2, data: "Build a React app", completed: false },
+    { id: 3, data: "Deploy the React app", completed: false },
   ]);
-
-  const handleComplete = (todoId) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === todoId ? { ...todo, completed: true } : todo
-      )
+  function handleComplete(id) {
+    setTodos((prev) =>
+      prev.map((todo) => {
+        return todo.id == id ? { ...todo, completed: true } : todo;
+      }),
     );
-  };
+  }
 
   return (
     <div>
       <h1>Parent Component</h1>
-      {/* The Child Component heading looks best if placed inside the TodoList component itself */}
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );
